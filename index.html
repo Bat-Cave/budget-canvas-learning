@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects and Arrays</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/73564ae928.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="bar">
+        <a class="navbutt" href="#">Dashboard</a>
+        <a class="navbutt" href="#">Budgets</a>
+        <a class="navbutt" href="#">Spending</a>
+        <a class="navbutt" href="#">Stats</a>
+        <a class="navbutt" href="#">Profile</a>
+        <a class="navbutt" href="#">Help</a>
+      </div>
+    </div>
+    <div class="container">
+      <span class="title">DASHBOARD</span>
+      <div class="card">
+        <h3>Monthly Income</h3>
+        <div class="control">
+          <input id="source" type="text" autocomplete="off" onfocus="this.value=''" placeholder="Source" value="">
+          <input id="indate" type="text" autocomplete="off" onfocus="this.value=''" placeholder="Day of Month" style="min-width: 150px;" value="">
+          <input id="inamount" type="text" autocomplete="off" onfocus="this.value=''" placeholder="Amount" value="">
+          <div class="buttons">
+            <button id="submit" style="background: #CBFF8C;" type="submit" onclick="addToIncome()"><i class="fas fa-plus"></i></button>
+            <button id="submit" style="background: #CBFF8C;" type="submit" onclick="removeFromIncome()"><i class="fas fa-minus"></i></button>
+          </div>
+        </div>
+        <p id="inerror"></p>
+        <table class="header">
+          <tr>
+            <th>Source</th>
+            <th>Date</th>
+            <th>Amount</th>
+          </tr>
+        </table>
+        <div class="tableview">
+          <table class="tabledata" id="ingroup">
+            <tr>
+            </tr>
+          </table>
+        </div>
+        <table class="footer">
+          <tr>
+            <td style="width: 60%;"></td>
+            <td style="text-align: right; width: 6%;">Sum: </td>
+            <td id="insum" style="text-align: left; border-bottom: 1px solid white;"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Monthly Bills</h3>
+        <div class="control">
+          <input id="product" type="text" autocomplete="off" onfocus="this.value=''" placeholder="Bill Name" value="">
+          <input id="datem" type="text" autocomplete="off" style="width: 6.666666%; text-align: center;" onfocus="this.value=''" oninput="checkBillDate()" max="12" min="1" placeholder="Month" value=""><p>/</p>
+          <input id="date" type="text" autocomplete="off" style="width: 6.666666%; text-align: center;" onfocus="this.value=''" oninput="checkBillDate()" max="31" min="1" placeholder="Day" value=""><p>/</p>
+          <input id="datey" type="text" autocomplete="off" style="width: 6.666667%; text-align: center;" onfocus="this.value=''" oninput="checkBillDate()" max="3000" min="1800" placeholder="Year" value="">
+          <input id="amount" type="text" autocomplete="off" onfocus="this.value=''" placeholder="Amount" value="">
+          <div class="buttons">
+            <button id="submit" style="background: #EC547A;" type="submit" onclick="addToBills()"><i class="fas fa-plus"></i></button>
+            <button id="submit" style="background: #EC547A;" type="submit" onclick="removeFromBills()"><i class="fas fa-minus"></i></button>
+          </div>
+        </div>
+        <p id="error"></p>
+        <table class="header">
+          <tr>
+            <th>Bill</th>
+            <th>Day of Month</th>
+            <th>Amount</th>
+          </tr>
+        </table>
+        <div class="tableview">
+          <table class="tabledata" id="group">
+            <tr>
+            </tr>
+          </table>
+        </div>
+        <table class="footer">
+          <tr>
+            <td style="width: 60%;"></td>
+            <td style="text-align: right; width: 6%;">Sum: </td>
+            <td id="sum" style="text-align: left; border-bottom: 1px solid white;"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="card-wide">
+        <h3>Graph</h3>
+        <div id="chartcontainer" class="chart">
+            <canvas id="chart"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
